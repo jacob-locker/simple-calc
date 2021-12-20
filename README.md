@@ -1,2 +1,2 @@
 # simple-calc
-Just a simple calculator written in Compose for Android
+Just a simple calculator written in Kotlin w/ Jetpack Compose for Android

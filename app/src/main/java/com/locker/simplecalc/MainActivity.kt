@@ -47,6 +47,15 @@ fun AppPreview_Pixel() {
 }
 
 @ExperimentalMaterialApi
+@Preview(showBackground = true, widthDp = 389, heightDp = 822)
+@Composable
+fun AppPreview_Pixel_Dark() {
+    SimpleCalcTheme(darkTheme = true) {
+        CalculatorScreen()
+    }
+}
+
+@ExperimentalMaterialApi
 @Preview(showBackground = true, widthDp = 411, heightDp = 731)
 @Composable
 fun AppPreview_Pixel_XL() {

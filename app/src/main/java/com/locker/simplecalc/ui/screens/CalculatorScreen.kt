@@ -8,6 +8,7 @@ import androidx.compose.material.icons.outlined.Backspace
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.*
@@ -78,7 +79,10 @@ fun ButtonGrid(inputState: MutableState<String>, answerState: MutableState<Strin
     CalcColumn {
         row { CalcRow {
             item {
-                CalcButton(buttonValue = "AC", inputState = inputState, answerState = answerState,
+                CalcButton(buttonValue = "AC",
+                    inputState = inputState,
+                    answerState = answerState,
+                    backgroundColor = MaterialTheme.colors.primaryVariant,
                     onClick = {
                         inputState.value = ""
                         answerState.value = ""
@@ -88,21 +92,24 @@ fun ButtonGrid(inputState: MutableState<String>, answerState: MutableState<Strin
                 CalcButton(
                     buttonValue = "(",
                     inputState = inputState,
-                    answerState = answerState
+                    answerState = answerState,
+                    backgroundColor = MaterialTheme.colors.primary,
                 )
             }
             item {
                 CalcButton(
                     buttonValue = ")",
                     inputState = inputState,
-                    answerState = answerState
+                    answerState = answerState,
+                    backgroundColor = MaterialTheme.colors.primary,
                 )
             }
             item {
                 CalcButton(
                     buttonValue = "${OperatorType.DIVISION.symbol}",
                     inputState = inputState,
-                    answerState = answerState
+                    answerState = answerState,
+                    backgroundColor = MaterialTheme.colors.primary,
                 )
             }
         } }
@@ -132,7 +139,8 @@ fun ButtonGrid(inputState: MutableState<String>, answerState: MutableState<Strin
                 CalcButton(
                     buttonValue = "${OperatorType.PRODUCT.symbol}",
                     inputState = inputState,
-                    answerState = answerState
+                    answerState = answerState,
+                    backgroundColor = MaterialTheme.colors.primary,
                 )
             }
         } }
@@ -162,7 +170,8 @@ fun ButtonGrid(inputState: MutableState<String>, answerState: MutableState<Strin
                 CalcButton(
                     buttonValue = "${OperatorType.SUBTRACT.symbol}",
                     inputState = inputState,
-                    answerState = answerState
+                    answerState = answerState,
+                    backgroundColor = MaterialTheme.colors.primary,
                 )
             }
         } }
@@ -192,7 +201,8 @@ fun ButtonGrid(inputState: MutableState<String>, answerState: MutableState<Strin
                 CalcButton(
                     buttonValue = "${OperatorType.ADD.symbol}",
                     inputState = inputState,
-                    answerState = answerState
+                    answerState = answerState,
+                    backgroundColor = MaterialTheme.colors.primary,
                 )
             }
         }  }
@@ -233,6 +243,7 @@ fun ButtonGrid(inputState: MutableState<String>, answerState: MutableState<Strin
                     buttonValue = "=",
                     inputState = inputState,
                     answerState = answerState,
+                    backgroundColor = MaterialTheme.colors.primaryVariant,
                     onClick = {
                         try {
                             inputState.value = inputState.value.parseExpression().value.toString()
@@ -311,6 +322,7 @@ fun CalcButton(
             answerState.value = ""
         }
     },
+    backgroundColor: Color = MaterialTheme.colors.surface,
     content: @Composable () -> Unit = {
         Text(text = buttonValue, style = MaterialTheme.typography.h6)
     }
@@ -329,6 +341,7 @@ fun CalcButton(
             .height(height),
         elevation = 2.dp,
         shape = CircleShape,
+        backgroundColor = backgroundColor,
         onClick = { onClick().also { haptic.performHapticFeedback(HapticFeedbackType.LongPress) }}
     ) {
         Column(

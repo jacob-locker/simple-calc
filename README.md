@@ -6,6 +6,6 @@ It also respects order of operations!
  </p>
 
 <p align="center">
-  <img src="Screenshot_20211220-135809.png" height="455">
-  <img src="Screenshot_20211220-135852.png" height="455">
+  <img src="images/Screenshot_20211220-135809.png" height="455">
+  <img src="images/Screenshot_20211220-135852.png" height="455">
 </p>
